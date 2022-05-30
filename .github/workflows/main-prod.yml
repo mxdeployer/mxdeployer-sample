@@ -1,14 +1,14 @@
 on:
   push:
-    tags: ["v*-stage"]
+    tags: ["v*-prod"]
 
 jobs:
   mxdeployer-stage-sample:
     runs-on: ubuntu-latest
-    environment: stage
+    environment: prod
     steps:
-      - name: Deploy to stage
+      - name: Deploy to production
         uses: mxdeployer/mxdeployer-action@v0.4
         with:
-          dest-host: "WIN11ANDY-STAGE"
+          dest-host: "WIN11ANDY-PROD"
           message: "${{ secrets.MESSAGE }}"

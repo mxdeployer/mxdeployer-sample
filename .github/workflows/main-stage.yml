@@ -1,0 +1,9 @@
+on: [push]
+
+jobs:
+  mxdeployer-stage-sample:
+    runs-on: ubuntu-latest
+    environment: stage
+    steps:
+      - name: Display the secret message
+        run: echo "The secret message is: ${{ secrets.MESSAGE }}"

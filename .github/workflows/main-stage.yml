@@ -3,7 +3,7 @@ on:
     tags: ["v*-stage"]
 
 jobs:
-  mxdeployer-stage-sample:
+  mxdeployer-sample-stage:
     runs-on: ubuntu-latest
     environment: stage
     steps:

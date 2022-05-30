@@ -3,7 +3,7 @@ on:
     tags: ["v*-prod"]
 
 jobs:
-  mxdeployer-stage-sample:
+  mxdeployer-sample-prod:
     runs-on: ubuntu-latest
     environment: prod
     steps:

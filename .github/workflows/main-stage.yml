@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: stage
     steps:
-      - name: Display the secret message
-        run: echo "The secret message is '${{ secrets.MESSAGE }}'"
+    - name: Display the secret message
+        uses: mxdeployer/mxdeployer-action@v0.3
+        with:
+          message: "${{ secrets.MESSAGE }}"

@@ -1,15 +1,15 @@
 on:
   push:
-    tags: ["v*-stage"]
+    tags: ["v*-prod"]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  mxdeployer-sample-stage:
+  mxdeployer-sample-prod:
     runs-on: ubuntu-latest
-    environment: stage
+    environment: prod
     steps:
       - uses: actions/checkout@v3
 
@@ -24,11 +24,11 @@ jobs:
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
-          name: dotnet-app
+          name: mxdeployer-sample-prod.zip
           path: ./build
 
-      - name: Deploy to stage
+      - name: Deploy to production
         uses: mxdeployer/mxdeployer-action@v0.4
         with:
-          dest-host: "WIN11ANDY-STAGE"
+          dest-host: "WIN11ANDY-PROD"
           message: "${{ secrets.MESSAGE }}"

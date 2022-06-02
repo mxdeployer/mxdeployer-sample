@@ -21,6 +21,9 @@ jobs:
       - name: Build
         run: dotnet publish -r "win-x64" -c Release --self-contained true -p:PublishSingleFile=true -o ./build
 
+      - name: Show me what you've got!
+        run: ls -laF ./build
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:

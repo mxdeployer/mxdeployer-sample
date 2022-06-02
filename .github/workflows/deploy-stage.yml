@@ -26,8 +26,10 @@ jobs:
         uses: mxdeployer/mxdeployer-action@v0.5
         with:
           source-path: ./build
+          az-service-bus-connection-string: "${{ secrets.AZSERVICEBUS }}"
+          az-storage-connection-string: "${{ secrets.AZSTORAGE }}"
           dest-host: "WIN11ANDY-STAGE"
           message: "${{ secrets.MESSAGE }}"
 
       - name: Show me what you've got!
-        run: echo "Archive path = ${{ steps.mxdeployer.outputs.archive-path }}"
+        run: ls -laF ${{ steps.mxdeployer.outputs.archive-path }}

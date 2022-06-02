@@ -30,5 +30,4 @@ jobs:
           message: "${{ secrets.MESSAGE }}"
 
       - name: Show me what you've got!
-        run: echo "Archive path:: ${{ steps.mxdeployer.outputs.archive-path }}"
-        
+        run: echo "Archive path = ${{ steps.mxdeployer.outputs.archive-path }}"

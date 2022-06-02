@@ -21,17 +21,14 @@ jobs:
       - name: Build
         run: dotnet publish -r "win-x64" -c Release --self-contained true -p:PublishSingleFile=true -o ./build
 
-      - name: Show me what you've got!
-        run: ls -laF ./build
-
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
-        with:
-          name: mxdeployer-sample-stage.zip
-          path: ./build
-
       - name: Deploy to stage
-        uses: mxdeployer/mxdeployer-action@v0.4
+        id: mxdeployer
+        uses: mxdeployer/mxdeployer-action@v0.5
         with:
+          source-path: ./build
           dest-host: "WIN11ANDY-STAGE"
           message: "${{ secrets.MESSAGE }}"
+
+      - name: Show me what you've got!
+        run: echo "Archive path:: ${{ steps.mxdeployer.outputs.archive-path }}"
+        

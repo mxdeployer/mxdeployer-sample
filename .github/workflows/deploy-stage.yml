@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to stage
         id: mxdeployer
-        uses: mxdeployer/mxdeployer-action@v0.6.2
+        uses: mxdeployer/mxdeployer-action@v0.7
         with:
           az-service-bus-connection-string: "${{ secrets.AZSERVICEBUS }}"
           az-storage-connection-string: "${{ secrets.AZSTORAGE }}"
@@ -35,5 +35,5 @@ jobs:
               "message": "${{ secrets.MESSAGE }}"
             }
 
-      - name: Show me what you've got!
-        run: ls -laF ${{ steps.mxdeployer.outputs.archive-path }}
+#      - name: Show me what you've got!
+#        run: ls -laF ${{ steps.mxdeployer.outputs.archive-path }}
